@@ -4,3 +4,4 @@ divide_and_conquer/
 .vscode/
 .cph/
 __pycache__/
+*.exe
