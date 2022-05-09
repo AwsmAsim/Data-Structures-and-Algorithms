@@ -55,7 +55,7 @@ int top_down(string n, string m){
 
     for(int i = 1; i <= n.size(); i++){
         for(int j = 1; j <= m.size(); j++){
-            if(n[i] == m[j]){
+            if(n[i-1] == m[j-1]){
                 dp[i][j] = dp[i-1][j-1]+1;
             }else{
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
@@ -63,10 +63,10 @@ int top_down(string n, string m){
         }
     }
 
-    // for(auto row: dp){
-    //     for(auto a: row) cout << a << " ";
-    //     cout << endl;
-    // }
+    for(auto row: dp){
+        for(auto a: row) cout << a << " ";
+        cout << endl;
+    }
 
     return dp[n.size()][m.size()];
 
@@ -74,8 +74,8 @@ int top_down(string n, string m){
 
 int main(){
 
-    string n = "abcdefg";
-    string m = "acgefi";
+    string n = "intension";//"abcdefg";
+    string m = "execution";//"acgefi";
 
     int answer = recursive(n, m, n.size()-1, m.size()-1);
     cout << "Recurion answer: " << answer << "\n";
